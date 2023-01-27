@@ -1,0 +1,359 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+.comment-points, .comment-delete, .comment-reply, .comment-edit, .modal-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.modal-cancel, .modal-delete {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  background-color: transparent; }
+
+.show {
+  display: block !important; }
+
+.comment-delete:hover, .comment-reply:hover, .comment-edit:hover, .comment-form-btn:hover {
+  cursor: pointer;
+  opacity: 0.5; }
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body,
+html {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  height: 100%;
+  position: relative;
+  padding: 1rem 0.5rem;
+  background-color: #f5f6fa; }
+
+.comment-container {
+  display: flex;
+  max-width: 650px;
+  margin: 0 auto; }
+
+.comment {
+  padding: 0.25rem 0.5rem 0.5rem 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(1rem, 1fr));
+  grid-template-rows: repeat(5, minmax(1rem, 1fr)); }
+  .comment-line {
+    display: none;
+    margin-left: 0;
+    margin-right: 1rem;
+    width: 0.5rem;
+    max-height: 100%;
+    background-color: #eaecf1;
+    position: relative; }
+  .comment-avatar {
+    width: 1.5rem;
+    grid-column: 1;
+    align-self: center; }
+  .comment-author {
+    color: #324152;
+    font-size: 12.8px;
+    font-weight: 500;
+    grid-column: 2 / 3;
+    align-self: center; }
+  .comment-you {
+    display: none;
+    color: white;
+    background-color: #5457b6;
+    font-size: 12.8px;
+    width: 2rem;
+    padding-bottom: 0.1rem;
+    padding-left: 0.25rem;
+    margin-bottom: -0.1rem;
+    border-radius: 3px;
+    grid-column: 4;
+    margin-right: 0.5rem;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center; }
+  .comment-date {
+    color: #67727e;
+    font-size: 14.4px;
+    font-weight: 400;
+    margin-left: 0.5rem;
+    grid-column: 4 / span 3;
+    grid-row: 1;
+    align-self: center; }
+  .comment-tag {
+    color: #5457b6;
+    font-weight: 500; }
+  .comment-text {
+    color: #67727e;
+    font-size: 16px;
+    padding-right: 1rem;
+    line-height: 1.5;
+    grid-column: 1 / 9;
+    grid-row: 2 / 5;
+    margin-bottom: 0.5rem; }
+  .comment-points {
+    background-color: #f5f6fa;
+    border-radius: 10px;
+    height: 2.4rem;
+    width: 6.2rem;
+    align-self: center;
+    grid-column: 1 / 3;
+    grid-row: 5 / 6; }
+    .comment-points-number {
+      color: #5457b6;
+      font-weight: 500;
+      margin: 0 1rem; }
+    .comment-points svg:hover {
+      cursor: pointer; }
+  .comment-delete {
+    display: none;
+    color: #ed6468;
+    background-color: transparent;
+    width: 6rem;
+    max-width: 6rem;
+    align-self: center;
+    grid-column: 5;
+    grid-row: 5; }
+    .comment-delete svg {
+      float: left;
+      margin-top: 0.15rem;
+      margin-right: 0.5rem; }
+  .comment-reply, .comment-edit {
+    color: #5457b6;
+    background-color: transparent;
+    width: 5rem;
+    max-width: 6rem;
+    align-self: center;
+    grid-column: 7 / 9;
+    grid-row: 5; }
+    .comment-reply svg, .comment-edit svg {
+      margin-right: 0.5rem; }
+  .comment-edit {
+    display: none;
+    margin-left: 1rem; }
+    .comment-edit svg {
+      float: left;
+      margin-top: 0.15rem; }
+
+.container {
+  display: flex;
+  max-width: 650px;
+  margin: 0 auto;
+  width: 100%; }
+
+.comment-form-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem !important;
+  max-width: 650px;
+  margin: 0 auto;
+  width: 100%; }
+
+.comment-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 5.5rem 3.5rem; }
+  .comment-form-line {
+    display: none;
+    margin-left: 0;
+    margin-right: 1rem;
+    width: 0.25rem;
+    max-height: 100%;
+    background-color: #eaecf1;
+    position: relative; }
+  .comment-form-text {
+    grid-column: 1 / 3;
+    color: #324152;
+    background-color: transparent;
+    font-size: 14.4px;
+    line-height: 1.5;
+    padding: 0.5rem 1rem 3rem 1rem;
+    height: 5.5rem;
+    border: 1px solid #eaecf1;
+    border-radius: 5px; }
+    .comment-form-text:hover {
+      cursor: pointer !important; }
+  .comment-form-img {
+    width: 2rem;
+    height: auto;
+    justify-self: left;
+    margin-top: 1.25rem; }
+  .comment-form-btn {
+    width: 5rem;
+    height: 2.5rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: white;
+    background-color: #5457b6;
+    border: none;
+    border-radius: 10px;
+    justify-self: right;
+    align-self: flex-end; }
+
+footer {
+  font-size: 11px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 0; }
+  footer a {
+    color: #3e52a3; }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  background-color: white;
+  border-radius: 10px;
+  width: 80%;
+  padding: 1rem;
+  max-width: 320px; }
+  .modal h1 {
+    color: #324152;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 1rem; }
+  .modal p {
+    color: #67727e;
+    font-weight: 400;
+    font-size: 14.4px;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: 1rem; }
+  .modal-btn-container {
+    justify-content: space-around;
+    gap: 1rem; }
+  .modal-cancel, .modal-delete {
+    font-size: 12.8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    padding: 0.7rem 1.5rem 0.8rem 1.5rem;
+    border-radius: 5px; }
+    .modal-cancel:hover, .modal-delete:hover {
+      opacity: 0.5; }
+  .modal-cancel {
+    background-color: #67727e; }
+  .modal-delete {
+    background-color: #ed6468; }
+
+.modal-info {
+  position: fixed;
+  top: 2rem;
+  left: 0;
+  right: 0;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  padding: 1rem 0.5rem;
+  margin: 0 auto;
+  background-color: steelblue;
+  border-radius: 10px; }
+
+@media (min-width: 650px) {
+  .comment-avatar {
+    grid-column: 2;
+    margin-bottom: -1rem; }
+  .comment-author {
+    grid-column: 3;
+    margin-bottom: -1rem;
+    margin-left: -2rem; }
+  .comment-you {
+    grid-column: 4;
+    margin-bottom: -1rem;
+    margin-left: -3rem; }
+  .comment-date {
+    grid-column: 5 / span 2;
+    margin-bottom: -1rem;
+    margin-left: -2rem; }
+  .comment-text {
+    grid-column: 2 / 12;
+    grid-row: 2 / span 5;
+    margin-top: 1rem; }
+  .comment-points {
+    grid-column: 1;
+    grid-row: 1 / span 5;
+    flex-direction: column;
+    gap: 1rem;
+    width: 2.4rem;
+    height: 6rem;
+    justify-self: center; }
+  .comment-line {
+    margin: 0 2rem; }
+  .comment-reply, .comment-edit {
+    grid-row: 1;
+    grid-column: 8;
+    margin-bottom: -1rem; }
+  .comment-edit {
+    grid-row: 1;
+    grid-column: 8;
+    margin-bottom: -1rem; }
+  .comment-delete {
+    grid-row: 1;
+    grid-column: 7;
+    margin-bottom: -1rem; }
+  .comment-form {
+    grid-template-columns: 0.1fr 1fr 0.2fr;
+    grid-template-rows: 1fr; }
+    .comment-form-img {
+      grid-column: 1;
+      grid-row: 1;
+      margin-bottom: auto;
+      margin-top: 0; }
+    .comment-form-line {
+      margin: 0 2rem; }
+    .comment-form-text {
+      grid-column: 2 / 3; }
+    .comment-form-btn {
+      grid-column: 3;
+      grid-row: 1;
+      margin-bottom: auto;
+      margin-top: 0; }
+  .modal-cancel, .modal-delete {
+    padding-left: 1.8rem;
+    padding-right: 1.8rem; }
+  .modal-info {
+    width: 42% !important;
+    max-width: 42% !important; } }
+
+@media (min-width: 400px) {
+  .modal-info {
+    width: 58%; } }
+
+@media (min-width: 500px) {
+  .modal-info {
+    width: 50%; } }
+
+@media (min-width: 750px) {
+  .modal-info {
+    width: 40% !important; } }
+
+@media (min-width: 900px) {
+  .modal-info {
+    width: 35% !important; } }
+
+@media (min-width: 1100px) {
+  .modal-info {
+    width: 25% !important; } }
