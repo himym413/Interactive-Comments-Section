@@ -348,7 +348,7 @@ const showReplyForm = (e) => {
           placeholder="Add a comment..."
         ></textarea>
 
-        <img alt="Current User's Avatar" class="comment-form-img" src="/dist/images/avatars/image-${currentUser.username}.png";/>
+        <img alt="Current User's Avatar" class="comment-form-img" src="./images/avatars/image-${currentUser.username}.png";/>
         <input type="submit" value="REPLY" class="comment-form-btn" />
       </form>
     </div>
