@@ -81,7 +81,7 @@ const renderComment = (
   <div class="comment">
       <img
         class="comment-avatar"
-        src="/dist/images/avatars/image-${comment.user.username}.png"
+        src="./images/avatars/image-${comment.user.username}.png"
         alt="Avatar"
       />
       <div class="comment-author">${comment.user.username}</div>
